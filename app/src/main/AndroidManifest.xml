@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.service_relever">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Service_Relever">
+        <activity
+            android:name=".Insertion_db"
+            android:exported="false" />
+        <activity
+            android:name=".Creation_db"
+            android:exported="false" />
+        <activity
+            android:name=".Creation_compteur_admin"
+            android:exported="false" />
+        <activity
+            android:name=".Cree_compte"
+            android:exported="false" />
+        <activity
+            android:name=".Menu_admin"
+            android:exported="false" />
+        <activity
+            android:name=".Decharger_complet_agent"
+            android:exported="false" />
+        <activity
+            android:name=".Decharger_partielle_agent"
+            android:exported="false" />
+        <activity
+            android:name=".Charger_agent"
+            android:exported="false" />
+        <activity
+            android:name=".Supprimer_anomalie_agent"
+            android:exported="false" />
+        <activity
+            android:name=".Afficher_anomalie_agent"
+            android:exported="false" />
+        <activity
+            android:name=".Ajouter_anomalie_agent"
+            android:exported="false" />
+        <activity
+            android:name=".Parametrage_fluid_agent"
+            android:exported="false" />
+        <activity
+            android:name=".Numerto_agent"
+            android:exported="false" />
+        <activity
+            android:name=".Supprimer_compte"
+            android:exported="false" />
+        <activity
+            android:name=".Ajouter_relveur_agent"
+            android:exported="false" />
+        <activity
+            android:name=".Menu_Agent"
+            android:exported="false" />
+        <activity
+            android:name=".Afficher_anomalies"
+            android:exported="false" />
+        <activity
+            android:name=".Statistique"
+            android:exported="false" />
+        <activity
+            android:name=".Change_password"
+            android:exported="false" />
+        <activity
+            android:name=".Change_Tournee"
+            android:exported="false" />
+        <activity
+            android:name=".Compteur_non_lus"
+            android:exported="false" />
+        <activity
+            android:name=".Rechercher_compteur"
+            android:exported="false" />
+        <activity
+            android:name=".Admin"
+            android:exported="false" />
+        <activity
+            android:name=".Menu_relveur"
+            android:exported="false" />
+        <activity
+            android:name=".reliever_form"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

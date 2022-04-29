@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Menu_admin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+        <!--<com.google.android.material.navigation.NavigationView-->
+        <!--    android:layout_width="wrap_content"-->
+        <!--    android:layout_height="wrap_content"-->
+        <!--    app:menu="@menu/menu_relv"/>-->
+
+        <TextView
+            android:id="@+id/txt_menu_principale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_orange"
+            android:padding="15dp"
+            android:text="Menu Principale"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/lb_releveur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Releveur :"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_par_rue_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Par Rue"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_par_secteur_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Par Secteur"
+            android:textColor="@color/white" />
+
+
+        <TextView
+            android:id="@+id/lb_facturation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Facturation :"
+            android:textSize="16sp" />
+        <Button
+            android:id="@+id/btn_decharger_complet_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="decharger complet"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_decharger_partielle_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="decharger partielle"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_charger_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="charger"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/lb_parametrage_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Parametrage :"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_creation_compteur_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Creation de compteur" />
+        <TextView
+            android:id="@+id/lb_sgbd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="SGBD :"
+            android:textSize="16sp" />
+        <Button
+            android:id="@+id/btn_creation_db_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Cree la base de donnees" />
+        <Button
+            android:id="@+id/btn_insertion_db_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Insertion des donnees" />
+        <TextView
+            android:id="@+id/lb_compte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Compte :"
+            android:textSize="16sp" />
+
+
+        <Button
+            android:id="@+id/btn_cree_compte_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Cree compte" />
+        <Button
+            android:id="@+id/btn_supprimer_compte_admn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Supprimer compte" />
+        <Button
+            android:id="@+id/btn_changer_mot_pass_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Chenger Mot De Passe" />
+        <Button
+            android:id="@+id/btn_fermer_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Quitter" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

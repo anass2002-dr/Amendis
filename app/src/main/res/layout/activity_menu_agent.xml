@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Menu_Agent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+        <!--<com.google.android.material.navigation.NavigationView-->
+        <!--    android:layout_width="wrap_content"-->
+        <!--    android:layout_height="wrap_content"-->
+        <!--    app:menu="@menu/menu_relv"/>-->
+
+        <TextView
+            android:id="@+id/txt_menu_principale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_orange"
+            android:padding="15dp"
+            android:text="Menu Principale"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/lb_compte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Compte :"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_ajouter_relveur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Ajouter Releveur"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_supprimer_releveur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Supprimer Releveur"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_changer_mot_pass_agent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Chenger Mot De Passe" />
+        <TextView
+            android:id="@+id/lb_Chrger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Charger :"
+            android:textSize="16sp" />
+        <Button
+            android:id="@+id/btn_decharger_complet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="decharger complet"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_decharger_partielle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="decharger partielle"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_charger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="charger"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/lb_anom_agent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Anomalies :"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_Ajouter_anomalie_agent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Ajouter Anomalie" />
+
+        <Button
+            android:id="@+id/btn_afficher_anomalie_agent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Afficher anomalie" />
+        <Button
+            android:id="@+id/btn_supprimer_anomalie_agent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Supprimer anomalie" />
+        <TextView
+            android:id="@+id/lb_parmetrage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Parmetrage :"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_admin_agent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Admin" />
+
+
+        <Button
+            android:id="@+id/btn_parmetrage_fluid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Parmetrage fluid" />
+        <Button
+            android:id="@+id/btn_numerote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Numerote terminale" />
+        <Button
+            android:id="@+id/btn_fermer_agent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/home_relveur"
+            android:text="Quitter" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
