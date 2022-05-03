@@ -1,9 +1,10 @@
 package com.example.service_relever;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,7 +12,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class MainActivity extends AppCompatActivity {
+
+    String url="jdbc:mysql://127.0.0.1:3306/amendis";
+    String user="root";
+    String pass="Ana@21s$";
 
     EditText email,password;
     Button btn_connect;
@@ -43,6 +55,27 @@ public class MainActivity extends AppCompatActivity {
         btn_connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                new task().execute();
+//                String result="Database connection success\n";
+//                try {
+//                StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//                StrictMode.setThreadPolicy(policy);
+//
+//                    Class.forName("com.mysql.jdbc.Driver");
+//
+//                    Connection con= DriverManager.getConnection(url,user,pass);
+//                    Statement st=con.createStatement();
+//                    ResultSet rs=st.executeQuery("select * from admin");
+//                    while (rs.next()){
+//                        result+=rs.getString(1);
+//                    }
+//                } catch (SQLException throwables) {
+//                    throwables.printStackTrace();
+//                } catch (ClassNotFoundException e) {
+//                    e.printStackTrace();
+//                }
+//                Toast.makeText(MainActivity.this, " "+result, Toast.LENGTH_SHORT).show();
+//
                 txt=email.getText().toString();
                 String aa="agent";
 //                int aaa=email.getText().length();
@@ -75,4 +108,29 @@ public class MainActivity extends AppCompatActivity {
     public void animation(View view){
         view.animate().alpha(1).setDuration(1000).translationY(0);
     }
+//    public class task extends AsyncTask<Void,Void,Void>{
+//        String resulta="try again";
+//        @Override
+//        protected Void doInBackground(Void... voids) {
+//
+//            try {
+//                Class.forName("com.mysql.jdbc.Driver");
+//                Connection con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/amendis","root","Ana@21s$");
+//                Statement st=con.createStatement();
+//                ResultSet rs=st.executeQuery("select * from admin");
+//                while(rs.next()){
+//                    resulta+=rs.getString(3)+"\n";
+//                }
+//            } catch (ClassNotFoundException | SQLException e) {
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(Void unused) {
+//            Toast.makeText(MainActivity.this, " "+resulta, Toast.LENGTH_SHORT).show();
+//            super.onPostExecute(unused);
+//        }
+//    }
 }

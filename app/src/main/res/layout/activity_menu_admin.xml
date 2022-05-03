@@ -136,8 +136,6 @@ android:layout_height="match_parent">
             android:paddingLeft="10dp"
             android:text="Compte :"
             android:textSize="16sp" />
-
-
         <Button
             android:id="@+id/btn_cree_compte_admin"
             android:layout_width="match_parent"
