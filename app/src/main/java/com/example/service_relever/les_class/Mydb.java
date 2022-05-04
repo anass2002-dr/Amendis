@@ -5,22 +5,25 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Message;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class SqlitOpenHelper extends SQLiteOpenHelper {
+public class Mydb extends SQLiteOpenHelper {
     private static String db_name="Amendis";
-    public SqlitOpenHelper(@Nullable Context context) {
-        super(context, db_name, null, 12);
+    private int who;
+    public Mydb(@Nullable Context context) {
+        super(context, db_name, null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         String releveur="create table releveur(id_releveur integer  primary key autoincrement," +
                 "email text not null unique,password text)";
-
+//        db.execSQL("insert into releveur()");
         String admin="create table admin(id_admin integer primary key autoincrement," +
                 "email text not null unique,password text)";
 
@@ -70,10 +73,12 @@ public class SqlitOpenHelper extends SQLiteOpenHelper {
         db.execSQL(secteur);
         db.execSQL(rue);
         db.execSQL(consomation);
+
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int OldVersion, int NewVersion) {
+//        db.execSQL("insert into releveur(email,password) values('anass123','123456')");
         db.execSQL("drop table if exists releveur");
         db.execSQL("drop table if exists admin");
         db.execSQL("drop table if exists agent");
@@ -88,7 +93,17 @@ public class SqlitOpenHelper extends SQLiteOpenHelper {
         db.execSQL("drop table if exists consomation");
 
         onCreate(db);
+
     }
+//    public String ll(){
+//        if(who==1){
+//            return "onCreate";
+//        }
+//        else if(who==2) {
+//            return "onUpgrede";
+//        }
+//        else return "no one";
+//    }
     public static long ajouter_releveur(SQLiteDatabase db,releveur releveur){
         ContentValues v=new ContentValues();
         v.put("email",releveur.getEmail());
@@ -137,6 +152,5 @@ public class SqlitOpenHelper extends SQLiteOpenHelper {
         v.put("email",agent.getEmail());
         v.put("password",agent.getPassword());
         return db.insert("agent",null,v);
-
     }
 }
