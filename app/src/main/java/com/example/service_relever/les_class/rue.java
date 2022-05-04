@@ -26,6 +26,9 @@ public class rue {
         this.rue = rue;
     }
 
+    public rue() {
+    }
+
     public rue(int id_rue, String rue) {
         this.id_rue = id_rue;
         this.rue = rue;

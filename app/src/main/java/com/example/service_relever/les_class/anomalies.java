@@ -48,6 +48,9 @@ public class anomalies {
         this.designation = designation;
     }
 
+    public anomalies() {
+    }
+
     public anomalies(String code_fluid, String lible, String designation) {
         Code_fluid = code_fluid;
         this.lible = lible;

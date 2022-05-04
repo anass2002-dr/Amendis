@@ -77,13 +77,16 @@ public class Agent extends  Person{
 //        this.num_tele = num_tele;
 //    }
 
-    public Agent(String nom, String prenom, String adress, String email, String password, String num_tele, int id_agent) {
-        super(nom, prenom, adress, email, password, num_tele);
+    public Agent() {
+    }
+
+    public Agent(String email, String password) {
+        super( email, password);
         this.id_agent = id_agent;
     }
 
-    public Agent(int id_agent, String nom, String prenom, String adress, String email, String password, String num_tele) {
-        super(nom,prenom,adress,email,password,num_tele);
+    public Agent(int id_agent,String email, String password) {
+        super(email,password);
         this.id_agent = id_agent;
 //        this.nom = nom;
 //        this.prenom = prenom;

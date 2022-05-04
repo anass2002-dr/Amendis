@@ -2,10 +2,13 @@ package com.example.service_relever.les_class;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class SqlitOpenHelper extends SQLiteOpenHelper {
     private static String db_name="Amendis";
@@ -15,14 +18,14 @@ public class SqlitOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String releveur="create table releveur(id_releveur integer  primary key autoincrement,nom text," +
-                "prenom text,adress text,email text,password text,num_tele text)";
+        String releveur="create table releveur(id_releveur integer  primary key autoincrement," +
+                "email text not null unique,password text)";
 
-        String admin="create table admin(id_admin integer primary key autoincrement,nom text," +
-                "prenom text,adress text,email text,password text,num_tele text)";
+        String admin="create table admin(id_admin integer primary key autoincrement," +
+                "email text not null unique,password text)";
 
-        String agent="create table agent(id_agent integer primary key autoincrement,nom text," +
-                "prenom text,adress text,email text,password text,num_tele text)";
+        String agent="create table agent(id_agent integer primary key autoincrement," +
+                "email text not null unique,password text)";
 
         String geo="create table geo(id_geo integer primary key autoincrement,geographie text)";
 
@@ -86,8 +89,54 @@ public class SqlitOpenHelper extends SQLiteOpenHelper {
 
         onCreate(db);
     }
-    public void ajouter_compteur(SQLiteDatabase db,compteur compteur){
-        ContentValues cv=new ContentValues();
-//        cv.put("compteur",compteur.get)
+    public static long ajouter_releveur(SQLiteDatabase db,releveur releveur){
+        ContentValues v=new ContentValues();
+        v.put("email",releveur.getEmail());
+        v.put("password",releveur.getPassword());
+        return db.insert("releveur",null,v);
+    }
+    public static  long ajouter_anomalie(SQLiteDatabase db,anomalies anomalies){
+        ContentValues v=new ContentValues();
+        v.put("code_fluid",anomalies.getCode_fluid());
+        v.put("designation",anomalies.getDesignation());
+        return db.insert("anomalies",null,v);
+    }
+    public static long supprimer_anomalies(SQLiteDatabase db,String des){
+        return db.delete("anomalies","designation = "+des,null);
+    }
+    public static long supprimer_compte(SQLiteDatabase db,String login,String user){
+        if(user.equals("releveur")){
+            return db.delete("releveur","email = "+login,null);
+        }
+        else if(user.equals("agent")){
+            return db.delete("agent","email = "+login,null);
+        }
+        else {
+            return db.delete("releveur","email = "+login,null);
+
+        }
+    }
+    public static ArrayList<anomalies> Afficher_anomalies(SQLiteDatabase db){
+        ArrayList<anomalies> list=new ArrayList<anomalies>();
+        Cursor cr=db.rawQuery("select * from anomalies",null);
+        cr.moveToNext();
+        while (cr.moveToNext()){
+            anomalies anomalies=new anomalies();
+            anomalies.setId_anomalies(cr.getInt(0));
+            anomalies.setCode_fluid(cr.getString(1));
+            anomalies.setLible(cr.getString(2));
+            anomalies.setDesignation(cr.getString(3));
+            list.add(anomalies);
+        }
+        cr.close();
+        return list;
+    }
+    public static long cree_compte_agent(SQLiteDatabase db,Agent agent)
+    {
+        ContentValues v=new ContentValues();
+        v.put("email",agent.getEmail());
+        v.put("password",agent.getPassword());
+        return db.insert("agent",null,v);
+
     }
 }

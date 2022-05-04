@@ -82,13 +82,15 @@ public class admin extends Person{
 //    }
 
 
-    public admin(String nom, String prenom, String adress, String email, String password, String num_tele, int id_admin) {
-        super(nom, prenom, adress, email, password, num_tele);
-        this.id_admin = id_admin;
+    public admin() {
     }
 
-    public admin(int id_admin, String nom, String prenom, String adress, String email, String password, String num_tele) {
-        super(nom,prenom,adress,email,password,num_tele);
+    public admin(String email, String password ) {
+        super(email, password);
+    }
+
+    public admin(int id_admin,String email, String password){
+        super(email,password);
         this.id_admin = id_admin;
 //        this.nom = nom;
 //        this.prenom = prenom;

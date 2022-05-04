@@ -26,6 +26,9 @@ public class geo {
         this.geographie = geographie;
     }
 
+    public geo() {
+    }
+
     public geo(int id_geo, String geographie) {
         this.id_geo = id_geo;
         this.geographie = geographie;

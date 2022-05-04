@@ -79,6 +79,9 @@ public class compteur {
         this.id_secteur = id_secteur;
     }
 
+    public compteur() {
+    }
+
     public compteur(int id_compteur, int id_geo, String abonne, String adress, String polic, int id_etat, int id_secteur) {
         this.id_compteur = id_compteur;
         this.id_geo = id_geo;

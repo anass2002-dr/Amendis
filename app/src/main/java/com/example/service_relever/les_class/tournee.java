@@ -26,6 +26,9 @@ public class tournee {
         this.Tournee = tournee;
     }
 
+    public tournee() {
+    }
+
     public tournee(int id_tounee, String tournee) {
         this.id_tounee = id_tounee;
         Tournee = tournee;

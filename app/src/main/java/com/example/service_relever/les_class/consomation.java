@@ -133,6 +133,9 @@ public class consomation {
         this.id_tournee = id_tournee;
     }
 
+    public consomation() {
+    }
+
     public consomation(Double i1, Double i2, Double i3, Double i4, Double i5, Double i6, Double i7, int id_anomalies, int id_releveur, int id_compteur, int id_tournee) {
         this.i1 = i1;
         this.i2 = i2;

@@ -26,6 +26,9 @@ public class etat {
         this.etat_compteur = etat_compteur;
     }
 
+    public etat() {
+    }
+
     public etat(String etat_compteur) {
         this.etat_compteur = etat_compteur;
     }

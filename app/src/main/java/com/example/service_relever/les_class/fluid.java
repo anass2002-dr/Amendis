@@ -58,6 +58,9 @@ public class fluid {
         this.filter_min = filter_min;
     }
 
+    public fluid() {
+    }
+
     public fluid(String code_fluid, Double filter_max, Double filter_supperieur, Double filte_infirieur, Double filter_min) {
         this.code_fluid = code_fluid;
         this.filter_max = filter_max;

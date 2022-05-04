@@ -31,7 +31,10 @@ public class secteur {
         this.id_secteur = id_secteur;
     }
 
-    public secteur( String secteur, String rue) {
+    public secteur() {
+    }
+
+    public secteur(String secteur, String rue) {
 //        this.id_secteur = id_secteur;
         this.secteur = secteur;
         this.rue = rue;
