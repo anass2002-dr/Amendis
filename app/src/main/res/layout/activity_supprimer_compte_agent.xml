@@ -7,7 +7,7 @@ android:layout_height="match_parent">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".Supprimer_compte">
+    tools:context=".Supprimer_compte_agent">
 
     <LinearLayout
         android:id="@+id/linearLayout9"
@@ -19,7 +19,7 @@ android:layout_height="match_parent">
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/btn_menu_supprimer_compte"
+            android:id="@+id/btn_menu_supprimer_compte_agent"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -39,32 +39,6 @@ android:layout_height="match_parent">
             android:textSize="20sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/line1_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout9"
-        >
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="0.5"
-            android:padding="10dp"
-            android:text="User :" />
-
-        <Spinner
-            android:id="@+id/sp_user"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:contentDescription="spinner user"
-            android:padding="10dp"/>
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout10"
@@ -74,7 +48,7 @@ android:layout_height="match_parent">
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line1_user">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
 
         <TextView
             android:id="@+id/textView10"
@@ -85,7 +59,7 @@ android:layout_height="match_parent">
             android:text="Login :" />
 
         <Spinner
-            android:id="@+id/sp_login_agent"
+            android:id="@+id/sp_login_releveur"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_weight="1"
@@ -116,7 +90,7 @@ android:layout_height="match_parent">
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_supprimer_compte_releveur"
+                android:id="@+id/btn_supprimer_compte_agent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -135,7 +109,7 @@ android:layout_height="match_parent">
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_fermer_supprimer_compte_releveur"
+                android:id="@+id/btn_fermer_supprimer_compte_agent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

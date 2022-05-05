@@ -16,13 +16,14 @@ public class Mydb extends SQLiteOpenHelper {
     private static String db_name="Amendis";
     private int who;
     public Mydb(@Nullable Context context) {
-        super(context, db_name, null, 2);
+        super(context, db_name, null, 6);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         String releveur="create table releveur(id_releveur integer  primary key autoincrement," +
                 "email text not null unique,password text)";
+
 //        db.execSQL("insert into releveur()");
         String admin="create table admin(id_admin integer primary key autoincrement," +
                 "email text not null unique,password text)";
@@ -74,6 +75,7 @@ public class Mydb extends SQLiteOpenHelper {
         db.execSQL(rue);
         db.execSQL(consomation);
 
+
     }
 
     @Override
@@ -95,20 +97,42 @@ public class Mydb extends SQLiteOpenHelper {
         onCreate(db);
 
     }
-//    public String ll(){
-//        if(who==1){
-//            return "onCreate";
-//        }
-//        else if(who==2) {
-//            return "onUpgrede";
-//        }
-//        else return "no one";
-//    }
+public static boolean login(Mydb dd,String email,String password,String user){
+        SQLiteDatabase db=dd.getReadableDatabase();
+        Cursor cr1=db.rawQuery("select * from'"+ user +"' where+ email='"+email+"'and password='"+password+"'",null);
+        if (cr1.getCount()>=1){
+            return true;
+        }
+        else
+            return false;
+}
+public static long ajouter_fluid(SQLiteDatabase db,fluid fluid){
+    ContentValues v=new ContentValues();
+    v.put("code_fluid",fluid.getCode_fluid());
+    v.put("fliter_max",fluid.getFilter_max());
+    v.put("filter_min",fluid.getFilter_min());
+    v.put("filter_infirieur",fluid.getFilte_infirieur());
+    v.put("filter_supperieur",fluid.getFilter_supperieur());
+
+    return db.insert("fluid",null,v);
+}
     public static long ajouter_releveur(SQLiteDatabase db,releveur releveur){
         ContentValues v=new ContentValues();
         v.put("email",releveur.getEmail());
         v.put("password",releveur.getPassword());
         return db.insert("releveur",null,v);
+    }
+    public static long ajouter_admin(SQLiteDatabase db,admin admin){
+        ContentValues v=new ContentValues();
+        v.put("email",admin.getEmail());
+        v.put("password",admin.getPassword());
+        return db.insert("admin",null,v);
+    }
+    public static long ajouter_agent(SQLiteDatabase db,Agent agent){
+        ContentValues v=new ContentValues();
+        v.put("email",agent.getEmail());
+        v.put("password",agent.getPassword());
+        return db.insert("agent",null,v);
     }
     public static  long ajouter_anomalie(SQLiteDatabase db,anomalies anomalies){
         ContentValues v=new ContentValues();
@@ -119,9 +143,13 @@ public class Mydb extends SQLiteOpenHelper {
     public static long supprimer_anomalies(SQLiteDatabase db,String des){
         return db.delete("anomalies","designation = "+des,null);
     }
+    public static long supprimer_compte_releveur(SQLiteDatabase db,String login){
+        return db.delete("releveur","email ='"+login+"'",null);
+
+    }
     public static long supprimer_compte(SQLiteDatabase db,String login,String user){
         if(user.equals("releveur")){
-            return db.delete("releveur","email = "+login,null);
+            return db.delete("releveur","email = '"+login+"'",null);
         }
         else if(user.equals("agent")){
             return db.delete("agent","email = "+login,null);
@@ -130,6 +158,21 @@ public class Mydb extends SQLiteOpenHelper {
             return db.delete("releveur","email = "+login,null);
 
         }
+    }
+    public static ArrayList<releveur> Afficher_releveur(SQLiteDatabase db){
+        ArrayList<releveur> list=new ArrayList<releveur>();
+        Cursor cr=db.rawQuery("select * from releveur",null);
+        cr.moveToNext();
+        while (cr.moveToNext()){
+            releveur releveur=new releveur();
+            releveur.setId_releveur(cr.getInt(0));
+            releveur.setEmail(cr.getString(1));
+            releveur.setPassword(cr.getString(2));
+
+            list.add(releveur);
+        }
+        cr.close();
+        return list;
     }
     public static ArrayList<anomalies> Afficher_anomalies(SQLiteDatabase db){
         ArrayList<anomalies> list=new ArrayList<anomalies>();

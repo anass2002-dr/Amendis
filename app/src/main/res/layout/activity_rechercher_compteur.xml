@@ -170,7 +170,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_ok_tournee"
+                    android:id="@+id/btn_ok_rechercher"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -188,7 +188,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_annuler_tournee"
+                    android:id="@+id/btn_annuler_rechercher"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -207,7 +207,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_fermer_tournee"
+                    android:id="@+id/btn_fermer_rechercher"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

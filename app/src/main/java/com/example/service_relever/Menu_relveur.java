@@ -3,10 +3,14 @@ package com.example.service_relever;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.service_relever.les_class.Mydb;
 
 public class Menu_relveur extends AppCompatActivity {
     Button btn_add_compteur,btn_change_tournee,btn_non_lus,
@@ -46,6 +50,20 @@ public class Menu_relveur extends AppCompatActivity {
         btn_add_compteur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Mydb db=new Mydb(Menu_relveur.this);
+
+                SQLiteDatabase dt=db.getReadableDatabase();
+                String query="select * from agent";
+
+                Cursor c1=dt.rawQuery(query,null);
+                String tt="";
+                String tt2="";
+                c1.moveToNext();
+                while (c1.moveToNext()){
+                    tt+=" "+c1.getString(1).toString()+" eeeeee";
+                }
+                Toast.makeText(Menu_relveur.this, " "+tt.toString(), Toast.LENGTH_SHORT).show();
+                c1.close();
             }
         });
         btn_stat.setOnClickListener(new View.OnClickListener() {

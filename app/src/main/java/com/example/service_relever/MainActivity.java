@@ -3,6 +3,7 @@ package com.example.service_relever;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +13,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.service_relever.les_class.Agent;
 import com.example.service_relever.les_class.Mydb;
+import com.example.service_relever.les_class.admin;
 import com.example.service_relever.les_class.releveur;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
-        email=(EditText)findViewById(R.id.txt_email);
-        password=(EditText)findViewById(R.id.txt_password);
-        btn_connect =(Button)findViewById(R.id.btn_connecter);
+            email=(EditText)findViewById(R.id.txt_email);
+            password=(EditText)findViewById(R.id.txt_password);
+            btn_connect =(Button)findViewById(R.id.btn_connecter);
         v1=(ImageView)findViewById(R.id.img1);
         v2=(ImageView)findViewById(R.id.img2);
         v3=(ImageView)findViewById(R.id.img3);
@@ -51,45 +56,31 @@ public class MainActivity extends AppCompatActivity {
         btn_connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                int user=0;
+                String email1=email.getText().toString();
+                String pass1=password.getText().toString();
                 Mydb sqlit=new Mydb(MainActivity.this);
-
-                SQLiteDatabase db=sqlit.getWritableDatabase();
-                releveur r=new releveur(email.getText().toString(),password.getText().toString());
-                db.execSQL("insert into releveur(email,password) values('"+r.getEmail()+"','"+r.getPassword()+"')");
-
-//                Mydb.ajouter_releveur(db,r);
-//                Cursor cr=db.rawQuery("select * from releveur",null);
-//                cr.moveToNext();
-//                while (cr.moveToNext()){
-//                    Toast.makeText(MainActivity.this, " "+cr.getString(1), Toast.LENGTH_SHORT).show();
-//                }
-
-//                Toast.makeText(MainActivity.this, " "+sqlit.ll(), Toast.LENGTH_SHORT).show();
-//                cr.close();
-//                txt=email.getText().toString();
-//                String aa="agent";
-//
-//                if(txt.equals(new String("agent"))){
-//
-//                    Intent intent =new Intent(MainActivity.this,com.example.service_relever.Menu_Agent.class);
-//                    intent.putExtra("user","agent");
-//                    MainActivity.this.startActivity(intent);
-//                }
-//                else if (txt.equals(new String("releveur"))) {
-//
-//
+                SQLiteDatabase db=sqlit.getReadableDatabase();
+                if (Mydb.login(sqlit,email1,pass1,"releveur")){
                     Intent intent =new Intent(MainActivity.this,com.example.service_relever.Menu_relveur.class);
                     intent.putExtra("user","releveur");
                     MainActivity.this.startActivity(intent);
-//                }
-//                else if (txt.equals(new String("admin"))) {
-//
-//
-//                    Intent intent =new Intent(MainActivity.this,com.example.service_relever.Menu_admin.class);
-//                    intent.putExtra("user","admin");
-//                    MainActivity.this.startActivity(intent);
-//                }
+                }
+                else if (Mydb.login(sqlit,email1,pass1,"agent")){
+                    Intent intent =new Intent(MainActivity.this,com.example.service_relever.Menu_Agent.class);
+                    intent.putExtra("user","agent");
+                    MainActivity.this.startActivity(intent);
+                }
+                else if (Mydb.login(sqlit,email1,pass1,"admin")){
+                    Intent intent =new Intent(MainActivity.this,com.example.service_relever.Menu_admin.class);
+                    intent.putExtra("user","admin");
+                    MainActivity.this.startActivity(intent);
+                }
+                else {
+                    email.setText("");
+                    password.setText("");
+                    Toast.makeText(MainActivity.this, "user or password invalide", Toast.LENGTH_SHORT).show();
+                }
 
 
             }

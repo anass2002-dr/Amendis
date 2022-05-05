@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Service_Relever">
         <activity
+            android:name=".Supprimer_compte_agent"
+            android:exported="false" />
+        <activity
             android:name=".Insertion_db"
             android:exported="false" />
         <activity

@@ -15,8 +15,8 @@ public class Menu_Agent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_agent);
-        getSupportActionBar().hide();
-        btn_fermer=(Button)findViewById(R.id.btn_fermer_admin);
+                getSupportActionBar().hide();
+        btn_fermer=(Button)findViewById(R.id.btn_fermer_agent);
         btn_fermer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,7 +35,7 @@ public class Menu_Agent extends AppCompatActivity {
         btn_supprimer_releveur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                open(Menu_Agent.this,com.example.service_relever.Supprimer_compte.class);
+                open(Menu_Agent.this,com.example.service_relever.Supprimer_compte_agent.class);
             }
         });
         btn_changer_pass=(Button)findViewById(R.id.btn_changer_mot_pass_agent);
@@ -113,4 +113,5 @@ public class Menu_Agent extends AppCompatActivity {
         Intent intent=new Intent(cntx,cls);
         startActivity(intent);
     }
+
 }
