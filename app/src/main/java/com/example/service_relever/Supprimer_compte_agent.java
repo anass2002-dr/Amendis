@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.service_relever.les_class.Mydb;
 import com.example.service_relever.les_class.releveur;
@@ -26,23 +27,15 @@ public class Supprimer_compte_agent extends AppCompatActivity {
     Mydb dd;
     Spinner sp;
     String login;
+    SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supprimer_compte_agent);
         getSupportActionBar().hide();
         sp=(Spinner)findViewById(R.id.sp_login_releveur);
-        dd=new Mydb(Supprimer_compte_agent.this);
-        SQLiteDatabase db=dd.getReadableDatabase();
-        ArrayList<String> relev=new ArrayList<>();
-        rel=Mydb.Afficher_releveur(db);
 
-        for(releveur r:rel){
-            relev.add(r.getEmail().toString());
-        }
-        ArrayAdapter<String> ad=new ArrayAdapter<>(Supprimer_compte_agent.this, android.R.layout.simple_list_item_1,relev);
-        sp.setAdapter(ad);
-
+remplir();
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -61,9 +54,20 @@ public class Supprimer_compte_agent extends AppCompatActivity {
             public void onClick(View view) {
                 String aa="";
                 Mydb.supprimer_compte_releveur(db,login);
+                Toast.makeText(Supprimer_compte_agent.this, "suppresion avec succes", Toast.LENGTH_SHORT).show();
+                remplir();
+
             }
         });
         Button menu=(Button)findViewById(R.id.btn_menu_supprimer_compte_agent);
+
+        Button fermer=(Button)findViewById(R.id.btn_fermer_supprimer_compte_agent);
+        fermer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                menu.performClick();
+            }
+        });
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,5 +76,17 @@ public class Supprimer_compte_agent extends AppCompatActivity {
 
             }
         });
+    }
+    public void remplir(){
+        dd=new Mydb(Supprimer_compte_agent.this);
+        db=dd.getReadableDatabase();
+        ArrayList<String> relev=new ArrayList<>();
+        rel=Mydb.Afficher_releveur(db);
+
+        for(releveur r:rel){
+            relev.add(r.getEmail().toString());
+        }
+        ArrayAdapter<String> ad=new ArrayAdapter<>(Supprimer_compte_agent.this, android.R.layout.simple_list_item_1,relev);
+        sp.setAdapter(ad);
     }
 }

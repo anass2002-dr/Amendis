@@ -152,10 +152,10 @@ public static long ajouter_fluid(SQLiteDatabase db,fluid fluid){
             return db.delete("releveur","email = '"+login+"'",null);
         }
         else if(user.equals("agent")){
-            return db.delete("agent","email = "+login,null);
+            return db.delete("agent","email = '"+login+"'",null);
         }
         else {
-            return db.delete("releveur","email = "+login,null);
+            return db.delete("releveur","email '"+login+"'",null);
 
         }
     }
@@ -195,5 +195,10 @@ public static long ajouter_fluid(SQLiteDatabase db,fluid fluid){
         v.put("email",agent.getEmail());
         v.put("password",agent.getPassword());
         return db.insert("agent",null,v);
+    }
+    public static long update_password(SQLiteDatabase db,String user,String login,String NewPass){
+        ContentValues v=new ContentValues();
+        v.put("password",NewPass);
+        return db.update(user,v,"email ='"+login+"'",null);
     }
 }
