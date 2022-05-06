@@ -201,4 +201,21 @@ public static long ajouter_fluid(SQLiteDatabase db,fluid fluid){
         v.put("password",NewPass);
         return db.update(user,v,"email ='"+login+"'",null);
     }
+    public static ArrayList<fluid> afficher_fluid(SQLiteDatabase db){
+        ArrayList<fluid> list=new ArrayList<fluid>();
+        Cursor cr=db.rawQuery("select * from fluid",null);
+        cr.moveToNext();
+        while (cr.moveToNext()){
+            fluid fluid=new fluid();
+            fluid.setId_fluid(cr.getInt(0));
+            fluid.setCode_fluid(cr.getString(1));
+            fluid.setFilter_max(cr.getDouble(2));
+            fluid.setFilter_min(cr.getDouble(3));
+            fluid.setFilte_infirieur(cr.getDouble(4));
+            fluid.setFilter_supperieur(cr.getDouble(5));
+            list.add(fluid);
+        }
+        cr.close();
+        return list;
+    }
 }

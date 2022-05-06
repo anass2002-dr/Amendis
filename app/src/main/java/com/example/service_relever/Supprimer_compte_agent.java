@@ -25,6 +25,7 @@ public class Supprimer_compte_agent extends AppCompatActivity {
     TextView txt_login;
     ArrayList<releveur> rel;
     Mydb dd;
+
     Spinner sp;
     String login;
     SQLiteDatabase db;
@@ -35,7 +36,7 @@ public class Supprimer_compte_agent extends AppCompatActivity {
         getSupportActionBar().hide();
         sp=(Spinner)findViewById(R.id.sp_login_releveur);
 
-remplir();
+        remplir();
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

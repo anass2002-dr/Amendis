@@ -22,15 +22,16 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    String url="jdbc:mysql://127.0.0.1:3306/amendis";
-    String user="root";
-    String pass="Ana@21s$";
+
 
     EditText email,password;
     Button btn_connect;
     ImageView v1,v2,v3;
     LinearLayout li1;
     String txt;
+    public static String user1="";
+    public static String login="";
+    public static String pass="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,17 +62,23 @@ public class MainActivity extends AppCompatActivity {
                 String pass1=password.getText().toString();
                 Mydb sqlit=new Mydb(MainActivity.this);
                 SQLiteDatabase db=sqlit.getReadableDatabase();
+                login=email1;
+                pass=pass1;
                 if (Mydb.login(sqlit,email1,pass1,"releveur")){
+                    user1="releveur";
                     Intent intent =new Intent(MainActivity.this,com.example.service_relever.Menu_relveur.class);
                     intent.putExtra("user","releveur");
                     MainActivity.this.startActivity(intent);
                 }
                 else if (Mydb.login(sqlit,email1,pass1,"agent")){
+
+                    user1="agent";
                     Intent intent =new Intent(MainActivity.this,com.example.service_relever.Menu_Agent.class);
                     intent.putExtra("user","agent");
                     MainActivity.this.startActivity(intent);
                 }
                 else if (Mydb.login(sqlit,email1,pass1,"admin")){
+                    user1="admin";
                     Intent intent =new Intent(MainActivity.this,com.example.service_relever.Menu_admin.class);
                     intent.putExtra("user","admin");
                     MainActivity.this.startActivity(intent);

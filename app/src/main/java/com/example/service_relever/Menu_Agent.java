@@ -11,6 +11,7 @@ import android.widget.Button;
 public class Menu_Agent extends AppCompatActivity {
     Button btn_ajouter_releveur,btn_supprimer_releveur,btn_changer_pass,btn_decharger_complet,btn_decharger_partielle,btn_charger
             ,btn_ajouter_anomalie,btn_afficher_anomalie,btn_supprimer_anomalie,btn_admin,btn_parafluid,btn_numerto_terminal,btn_fermer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

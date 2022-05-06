@@ -97,6 +97,7 @@ public class Menu_relveur extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentPass=new Intent(Menu_relveur.this,com.example.service_relever.Change_password.class);
+                intentPass.putExtra("user","agent");
                 Menu_relveur.this.startActivity(intentPass);
             }
         });
