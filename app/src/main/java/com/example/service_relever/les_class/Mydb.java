@@ -141,7 +141,7 @@ public static long ajouter_fluid(SQLiteDatabase db,fluid fluid){
         return db.insert("anomalies",null,v);
     }
     public static long supprimer_anomalies(SQLiteDatabase db,String des){
-        return db.delete("anomalies","designation = "+des,null);
+        return db.delete("anomalies","designation = '"+des+"'",null);
     }
     public static long supprimer_compte_releveur(SQLiteDatabase db,String login){
         return db.delete("releveur","email ='"+login+"'",null);

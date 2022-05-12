@@ -72,16 +72,16 @@ public class Parametrage_fluid_agent extends AppCompatActivity {
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String cod=adapterView.getItemAtPosition(i).toString();
-                Cursor cr=db.rawQuery("select * from fluid where code_fluid ='"+cod+"'",null);
-                cr.moveToNext();
-                while (cr.moveToNext()){
-                    txt_max.setText(Double.toString(cr.getDouble(1)));
-                    txt_min.setText(Double.toString(cr.getDouble(4)));
-                    txt_suppiereur.setText(Double.toString(cr.getDouble(2)));
-                    txt_infirieur.setText(Double.toString(cr.getDouble(3)));
-                }
-                cr.close();
+//                String cod=adapterView.getItemAtPosition(i).toString();
+//                Cursor cr=db.rawQuery("select * from fluid where code_fluid ='"+cod.toString()+"'",null);
+//                cr.moveToNext();
+//                while (cr.moveToNext()){
+//                    txt_max.setText(Double.toString(cr.getDouble(1)));
+//                    txt_min.setText(Double.toString(cr.getDouble(4)));
+//                    txt_suppiereur.setText(Double.toString(cr.getDouble(2)));
+//                    txt_infirieur.setText(Double.toString(cr.getDouble(3)));
+//                }
+//                cr.close();
             }
 
             @Override
